@@ -12,7 +12,7 @@ print(pytesseract.image_to_string(Image.open('test.png')))
 
 
 # Convert pdf to image
-filename = "f"
+output_filename = "f"
 
 images = convert_from_bytes(
     open('dummy.pdf', 'rb').read(),
@@ -20,8 +20,8 @@ images = convert_from_bytes(
     fmt='jpeg',
     first_page=1,
     last_page=2,
-    output_file=filename)
+    output_file=output_filename)
 
-print(pytesseract.image_to_string(f'output/{filename}0001-1.jpg'))
+print(pytesseract.image_to_string(f'output/{output_filename}0001-1.jpg'))
 print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-print(pytesseract.image_to_string(f'output/{filename}0001-2.jpg'))
+print(pytesseract.image_to_string(f'output/{output_filename}0001-2.jpg'))
