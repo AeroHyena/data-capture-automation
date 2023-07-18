@@ -35,9 +35,42 @@ images = convert_from_bytes(
     first_page=1,
     last_page=2,
     output_file=OUTPUT_FILENAME)
+print("Converted dummy.pdf")
+
+OUTPUT_FILENAME2 = "g"
+images2 = convert_from_bytes(
+    open('dummy(invoice).pdf', 'rb').read(),
+    output_folder='output',
+    fmt='jpeg',
+    first_page=1,
+    last_page=2,
+    output_file=OUTPUT_FILENAME2)
+print("Converted dummy(invoice).pdf")
+
 
 # Read the image files in the output folder,
 # and print the contents to console.
-print(pytesseract.image_to_string(f'output/{OUTPUT_FILENAME}0001-1.jpg'))
+
+x = pytesseract.image_to_string(f'output/{OUTPUT_FILENAME}0001-1.jpg')
+print(x)
+print(type(x))
+if x.find("Tax Invoice") != -1:
+    print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+    print(pytesseract.image_to_string(f'output/{OUTPUT_FILENAME}0001-2.jpg'))
+    print("Invoice found")
+else:
+    print("No invoice found")
+
+
 print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-print(pytesseract.image_to_string(f'output/{OUTPUT_FILENAME}0001-2.jpg'))
+
+
+x = pytesseract.image_to_string(f'output/{OUTPUT_FILENAME2}0001-1.jpg')
+print(x)
+print(type(x))
+if x.find("Tax Invoice") != -1:
+    print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+    print(pytesseract.image_to_string(f'output/{OUTPUT_FILENAME2}0001-2.jpg'))
+    print("Invoice found")
+else:
+    print("No invoice found")
