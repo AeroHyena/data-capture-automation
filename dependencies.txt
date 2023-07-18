@@ -2,3 +2,4 @@ tesseract
 pytesseract
 pdf2image
 kivy
+piautogui
