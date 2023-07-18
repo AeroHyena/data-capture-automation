@@ -9,7 +9,7 @@ import pytesseract
 
 # Simple image to string
 print(pytesseract.image_to_string(Image.open('test.png')))
-
+print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
 # Convert pdf to image
 output_filename = "f"
