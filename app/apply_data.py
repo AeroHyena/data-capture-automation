@@ -9,7 +9,7 @@ The primary way of applying data is using pyautogui
 to control the mouse and keyboard.
 """
 
-import pyautogui
+# import pyautogui
 
 # Temp code - get XY coordinates of the mouse
-pos = pyautogui.position()
+# pos = pyautogui.position()
