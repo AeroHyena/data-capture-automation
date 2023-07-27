@@ -78,13 +78,13 @@ def filter_text(page1, page2, user):
     data.update({"sor": f"{regex.findall(sor_pattern, ticket)}"})
 
     # Invoice number
-    psi_pattern = r'PSI\d+'
+    psi_pattern = r'PS\d+'
     if invoice:
-        x  = regex.findall(psi_pattern, invoice)
-        print(x)
-        # x[0] = x[0].replace("I", "1", 2) #  Tesseract reads PS1 instead of PSI, so we fix it here
-        # x[0] = x[0].replace("1", "I", 1)
-        data.update({"psi": x})
+        invoice = regex.findall(psi_pattern, invoice)
+        if invoice[0].find("PS1") != -1:
+            invoice[0] = invoice[0].replace("1", "I", 1) #  Tesseract reads PS1 instead of PSI, so we fix it here
+ 
+        data.update({"psi": invoice})
     else:
         data.update({"psi": "None"})
 
@@ -143,8 +143,7 @@ def filter_text(page1, page2, user):
             if idx+ 1 < len(lines):
                 extract = lines[idx+1].strip()
                 transporter = extract.replace("Transporter: ", "")
-                print(transporter)
-                data.update({"transporter": extract})
+                data.update({"transporter": transporter})
 
     # Store
     if ticket.find("VKB STORE") != -1 or ticket.find("SHUTTLE") != -1:
@@ -192,7 +191,7 @@ def analyze(pdf, user):
 
 
 # Test section
-print(analyze("app/docs/full.pdf", "Arnold"))
+print(analyze("app/docs/1.pdf", "Arnold"))
 
 # TODO: Implement proper exception handling into functions
 # TODO: test difference in results between internal and warehouse release tickets. Make changes as needed
