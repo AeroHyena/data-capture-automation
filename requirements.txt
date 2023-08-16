@@ -2,7 +2,7 @@ tesseract
 pytesseract
 pdf2image
 kivy
-pyautogui
 re
 poetry
 portray
+mysql.connector
