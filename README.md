@@ -6,12 +6,13 @@ The following process is used:
 
 -> Extract text from document file
 
--> Filter text to eliminate unneccessary information.
+-> Filter text to extract needed data points.
 
--> Navigate to the data capture window
+-> Commit data points to a database
 
--> Copy and paste data points into their respective fields
+-> Provide a gui that a user can use to accessa and edit data from said database.
 
 
-
-This process uses a user-prespective approach to eliminate the need to access external databases, especially since this is intended to be a temporary solution.
+## Changes
+- The last major commit added data filtering to extract data points.
+- The next major commit will add the ability to store and retrieve data from a database. 
